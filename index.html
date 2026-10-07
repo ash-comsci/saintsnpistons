@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Book a service with Saints & Pistons at All Saints High School.">
+  <title>Book a service | Saints & Pistons</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%233b172d'/%3E%3Ctext x='20' y='29' text-anchor='middle' font-family='serif' font-weight='bold' font-size='28' fill='%23aac9d5'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="wordmark" aria-label="Saints and Pistons home">S<span>&</span>P <small>SAINTS & PISTONS</small></a>
+    <span class="school">ALL SAINTS HIGH SCHOOL <span>/ AUTO SHOP</span></span>
+  </header>
+  <div class="prototype"><strong>WORKING DRAFT</strong> Try the booking form. Availability is a preview; no appointments are sent or reserved.</div>
+  <main>
+    <aside class="brand-panel">
+      <div class="brand-art">
+        <!-- To use the original logo, put it beside these files with this name,
+             or replace src with a data:image/png;base64,... URL to keep exactly 3 files. -->
+        <img id="shop-logo" src="saints n pistons.png" alt="Saints & Pistons Auto Shop gorilla logo" hidden>
+        <div id="logo-fallback" class="type-logo" aria-label="Saints & Pistons Auto Shop"><span>SAINTS</span><i>&</i><span>PISTONS</span><small>A U T O S H O P</small></div>
+      </div>
+      <div class="brand-copy"><p class="eyebrow">THE ALL SAINTS AUTO SHOP</p><h1>Good care.<br>Hands-on learning.</h1><p>Choose your service and a weekday spot at Saints & Pistons.</p></div>
+      <div class="shop-facts"><div><strong>02</strong><span>spots per day</span></div><div><strong>MON–FRI</strong><span>weekday bookings</span></div></div>
+      <p class="fine-print">Other work depends on available shop time. Appointment times and school closure dates will be added before bookings open.</p>
+      <a id="calendar-link" class="calendar-link" target="_blank" rel="noopener noreferrer">View the shop’s Google Calendar <span aria-hidden="true">↗</span></a>
+    </aside>
+    <section class="booking-panel" aria-labelledby="booking-title">
+      <div class="booking-heading"><div><p class="eyebrow">LET’S GET YOU IN THE SHOP</p><h2 id="booking-title">Book a service</h2></div><span class="draft-badge">Preview mode</span></div>
+      <form id="booking-form">
+        <fieldset><legend><span class="step">01</span> What does your vehicle need?</legend>
+          <div class="services">
+            <label class="service"><input type="radio" name="service" value="Brake inspection / work" required><span><strong>Brake inspection / work</strong><small>Inspection and brake service</small></span><span class="radio-mark"></span></label>
+            <label class="service"><input type="radio" name="service" value="Seasonal tire changeover — on rims"><span><strong>Tire changeover <em>on rims</em></strong><small>Seasonal swap · tires already mounted</small></span><span class="radio-mark"></span></label>
+            <label class="service"><input type="radio" name="service" value="Seasonal tire changeover — not on rims"><span><strong>Tire changeover <em>not on rims</em></strong><small>Seasonal swap · mounting required</small></span><span class="radio-mark"></span></label>
+            <label class="service"><input type="radio" name="service" value="Oil change"><span><strong>Oil change</strong><small>Engine oil service</small></span><span class="radio-mark"></span></label>
+            <label class="service wide"><input type="radio" name="service" value="Other"><span><strong>Other work</strong><small>Tell us what you need · dependent on time</small></span><span class="radio-mark"></span></label>
+          </div>
+        </fieldset>
+        <fieldset><legend><span class="step">02</span> Pick a weekday</legend>
+          <div class="date-layout"><div class="calendar"><div class="month-nav"><h3 id="month-label" aria-live="polite"></h3><div><button type="button" id="previous-month" aria-label="Previous month">‹</button><button type="button" id="next-month" aria-label="Next month">›</button></div></div><div class="weekdays" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div><div id="date-grid" class="date-grid" aria-label="Choose a date"></div><p class="calendar-note">Weekdays only · up to 90 days ahead</p></div>
+          <div class="spots"><h3 id="selected-date">Select a date</h3><p id="availability-note" aria-live="polite">Choose a weekday to preview its two spots.</p><div id="spot-options"></div><small>Spot numbers are booking places, not appointment times.</small></div></div>
+        </fieldset>
+        <fieldset><legend><span class="step">03</span> Your details</legend><div class="details-grid"><label>Your name<input name="name" autocomplete="name" required maxlength="100" placeholder="First and last name"></label><label>Email address<input name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@example.com"></label><label class="wide">Vehicle<input name="vehicle" required maxlength="150" placeholder="Year, make and model"></label><label class="wide"><span id="notes-label">Anything we should know? <small>(optional)</small></span><textarea name="notes" id="notes" rows="3" maxlength="1500" placeholder="Describe the issue or any special requests"></textarea></label></div></fieldset>
+        <div class="booking-bottom"><p id="booking-summary" aria-live="polite">Choose a service, date and spot to continue.</p><button class="primary" type="submit">Preview booking</button></div>
+        <p id="form-status" class="form-status" role="status"></p>
+      </form>
+      <footer>SAINTS & PISTONS <span>All Saints High School Auto Shop</span></footer>
+    </section>
+  </main>
+  <dialog id="review-dialog" aria-labelledby="review-title"><button class="close" type="button" id="close-review" aria-label="Close booking preview">×</button><p class="eyebrow">YOUR BOOKING PREVIEW</p><h2 id="review-title">Ready for the shop.</h2><p class="review-notice">This is a preview only. Nothing has been sent or reserved.</p><dl id="review-details"></dl><button class="primary" type="button" id="edit-booking">Back to booking</button></dialog>
+  <noscript><p class="prototype">Enable JavaScript to try the booking form.</p></noscript>
+</body>
+</html>
